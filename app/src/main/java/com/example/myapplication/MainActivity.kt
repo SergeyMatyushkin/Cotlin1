@@ -12,6 +12,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         button = findViewById(R.id.button)
-        button.setOnClickListener(View.OnClickListener { Toast.makeText(this@MainActivity, button.getText(), Toast.LENGTH_SHORT).show() })
+        button?.setOnClickListener(View.OnClickListener {
+            Toast.makeText(this@MainActivity, button?.text, Toast.LENGTH_SHORT).show() })
     }
 }
