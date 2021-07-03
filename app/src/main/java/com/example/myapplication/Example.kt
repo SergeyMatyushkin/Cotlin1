@@ -18,6 +18,21 @@ class Calculator() {
             Double.NEGATIVE_INFINITY
         }
     }
+    fun bar(){
+        val viewType = 0
+    }
+}
+
+fun oleoleole(){
+    val arrayList = listOf("foo", "bar", "oleoleole").toMutableList()
+    arrayList.add("gogogo")
+
+    arrayList.forEach{
+        print(it)
+    }
+    for (string in arrayList){
+        print(string)
+    }
 }
 
 

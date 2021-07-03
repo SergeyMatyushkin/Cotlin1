@@ -31,6 +31,7 @@ public class JavaActivity extends AppCompatActivity {
 
             }
         });
+        NoteEntity note = new NoteEntity("", "", "", 01);
     }
 
     private void showAlertDialog(String message, String title) {
