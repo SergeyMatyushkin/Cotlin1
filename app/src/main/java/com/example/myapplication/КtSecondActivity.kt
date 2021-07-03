@@ -18,22 +18,26 @@ class KotlinActivity : AppCompatActivity() {
         stringEditText = findViewById(R.id.string_edit_text)
         secondButton = findViewById(R.id.button)
         secondButton.setOnClickListener {
-            showAlertDialog(stringEditText.text.toString(), null) }
+            showAlertDialog(stringEditText.text.toString(), null)
+        }
     }
 
     private fun showAlertDialog(message: String?, title: String?): Boolean {
-        val builder = AlertDialog.Builder(this)
-                .setPositiveButton("Ok") { _, _ ->
-                    Toast.makeText(this, "Оле, Оле, Оле", Toast.LENGTH_SHORT).show() }
+        AlertDialog.Builder(this).apply {
+            setPositiveButton("Ok") { _, _ ->
+                Toast.makeText(this@KotlinActivity, "Оле, Оле, Оле", Toast.LENGTH_SHORT).show()
+            }
+            message?.let {
+                setMessage(message)
+            }
+            if (title != null) {
+                setTitle(title)
+            }
+            show()
+        }
 
 
-        message?.let {
-            builder.setMessage(message)
-        }
-        if (title != null) {
-            builder.setTitle(title)
-        }
-        builder.show()
+
         return true
     }
 }
