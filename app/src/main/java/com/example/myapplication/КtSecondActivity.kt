@@ -21,16 +21,19 @@ class KotlinActivity : AppCompatActivity() {
             showAlertDialog(stringEditText.text.toString(), null) }
     }
 
-    private fun showAlertDialog(message: String?, title: String?) {
+    private fun showAlertDialog(message: String?, title: String?): Boolean {
         val builder = AlertDialog.Builder(this)
                 .setPositiveButton("Ok") { _, _ ->
                     Toast.makeText(this, "Оле, Оле, Оле", Toast.LENGTH_SHORT).show() }
-        if (message != null) {
+
+
+        message?.let {
             builder.setMessage(message)
         }
         if (title != null) {
             builder.setTitle(title)
         }
         builder.show()
+        return true
     }
 }
