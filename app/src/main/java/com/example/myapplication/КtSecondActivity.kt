@@ -17,8 +17,11 @@ class KotlinActivity : AppCompatActivity() {
         setContentView(R.layout.activity_second)
         stringEditText = findViewById(R.id.string_edit_text)
         secondButton = findViewById(R.id.button)
+
+        val title: String? = null
+
         secondButton.setOnClickListener {
-            showAlertDialog(stringEditText.text.toString(), null)
+            showAlertDialog(stringEditText.text.toString(), title ?: "")
         }
     }
 
@@ -30,10 +33,9 @@ class KotlinActivity : AppCompatActivity() {
             message?.let {
                 setMessage(message)
             }
-            if (title != null) {
+
                 setTitle(title)
-            }
-            show()
+                show()
         }
 
 

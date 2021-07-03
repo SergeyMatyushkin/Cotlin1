@@ -19,6 +19,8 @@ class MainActivity : AppCompatActivity() {
            startActivity(Intent(this, KotlinActivity::class.java))
        }
 
+        val x = 4 - PI
+
     }
 
 }
