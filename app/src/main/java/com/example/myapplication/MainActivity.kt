@@ -1,23 +1,24 @@
 package com.example.myapplication
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
-class MainActivity : AppCompatActivity(), View.OnClickListener {
+class MainActivity : AppCompatActivity() {
 
-    private var button: Button? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        button = findViewById(R.id.button)
-        button?.setOnClickListener (this)
+
+        findViewById<View>(R.id.button_java).setOnClickListener {
+            startActivity(Intent(this, JavaActivity::class.java))
+        }
+       findViewById<View>(R.id.button_kotlin).setOnClickListener {
+           startActivity(Intent(this, KotlinActivity::class.java))
+       }
+
     }
 
-    override fun onClick(v: View) {
-        Toast.makeText(this@MainActivity, button?.text, Toast.LENGTH_SHORT).show()
-    }
 }
