@@ -9,19 +9,22 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 
 class KotlinActivity : AppCompatActivity() {
-    private var secondButton: Button? = null
-    private var stringEditText: EditText? = null
+    private lateinit var secondButton: Button
+    private lateinit var stringEditText: EditText
+
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
         stringEditText = findViewById(R.id.string_edit_text)
         secondButton = findViewById(R.id.button)
-        secondButton.setOnClickListener(View.OnClickListener { showAlertDialog(stringEditText.getText().toString(), null) })
+        secondButton.setOnClickListener {
+            showAlertDialog(stringEditText.text.toString(), null) }
     }
 
     private fun showAlertDialog(message: String?, title: String?) {
-        val builder = AlertDialog.Builder(this@SecondActivity)
-                .setPositiveButton("Ok") { dialog, i -> Toast.makeText(this@SecondActivity, "Оле, Оле, Оле", Toast.LENGTH_SHORT).show() }
+        val builder = AlertDialog.Builder(this)
+                .setPositiveButton("Ok") { _, _ ->
+                    Toast.makeText(this, "Оле, Оле, Оле", Toast.LENGTH_SHORT).show() }
         if (message != null) {
             builder.setMessage(message)
         }
